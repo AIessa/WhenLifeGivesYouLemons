@@ -1,0 +1,180 @@
+title: Boat.Start
+tags: 
+colorID: 0
+position: 6385,4038
+---
+<<LogEvent boatride>>
+<<SetAudio bg_ferry bg>>
+<<SetBackground ocean_background>>
+<<SetSpeaker none>>
+<<NoSpeakerName Narrator>>
+The boat was gently rocking with the waves.
+You were on your way to an island, where you would spend your summer holidays.
+You...
+-> were looking forward to it.
+    You were looking forward to it. After all, it would be an adventure!
+-> were not sure what you should expect.
+    You were not sure what you should expect. Truly, being in a new environment - by yourself! A bit worrying...
+-> were bored already.
+    You were bored already. There were better things to do and you doubted that this journey would be very interesting.
+<<wait 2>>
+As the boat made its way towards the island, suddenly - 
+<<SetBackground oceancat_background>>
+- a creature appeared out of nowhere. A cat! Had it always been there?
+-> You try to pet it
+    You reach out to the cat, but your hand goes right through it! 
+-> You speak to it 
+    <<SetSpeaker You>>
+    Kitty kitty!
+    <<SetSpeaker Ghostcat>>
+    Yes, that's me...
+    <<SetSpeaker none>>
+    You gasp in surprise. The cat can speak??
+-> You ignore it
+    You turn away to continue looking at the sea. Cat's aren't your thing..
+    <<SetSpeaker Ghostcat>>
+    HEY! Did you just ignore me?! This has never happened to me!
+    <<SetSpeaker You>>
+    You feel like your heart stopped for a second and you freeze. 
+    What a surprise! The cat SPEAKS??? 
+<<SetSpeaker Ghostcat>>
+You can call me Ghostcat... (because I am a ghost AND a cat!)
+<<SetNameKnown Ghostcat>>
+<<SetSpeaker Ghostcat>>
+I bet you're surprised - I get that all the time.
+<<SetSpeaker none>>
+<<NoSpeakerName Narrator>>
+It looks like the strange creature is laughing.
+<<AddXPCard surprise_lv1>>
+... you thought - am I surprised by this? How do I feel?
+-> You don't try to analyze it - nothing special.
+    You are not sure how you feel. The cat seems to be waiting for you to say something...
+-> You feel ... bad. What is this feeling? (diff: 1 eXP)
+    <<Energy -1>>
+    <<SetSpeaker none>>
+    (skill check ok!) You tried to understand why you were feeling bad. Maybe because... 
+    <<AddXPCard analyzingemotions_lv1>>
+    -> the surprise shocked your body too much.
+        Your heart was racing. You tried to breathe in and out deeply to calm it.
+    -> you felt that the cat was making fun of you - so mean!
+        You were angry at the stupid cat ghost! You glared at it.
+    -> you really didn't like not understanding what was going on.
+        Ghosts aren't real, right?? Was it dangerous? It made you nervous and scared...
+    -> you were already feeling sick from the boat.
+        Your mood was already bad, because you were feeling sick. This is too much!
+-> This strange moment makes you feel.. good! (diff: 1 eXP)
+    <<Energy -1>>
+    <<SetSpeaker none>>
+    (skill check ok!) You realised that the surprise was a good surprise.
+    -> How exciting! A real ghost! And a cat ghost, too!
+        You loved fantasy and mysteries. Meeting a real life ghost? SO COOL! 
+    -> Amazing, finally someone to talk to!
+        You had been a bit bored, but finally there was someone to talk to.
+    -> You didn't think the cat was dangerous. What a relief!
+        Getting so surprised and then realising there was no danger made you feel pretty good!
+    <<AddXPCard analyzingemotions_lv1>>
+<<SetSpeaker Ghostcat>>
+Anyway, I will join you on your journey. You know about the magic thing, right?
+-> No!
+Wait - that's not why you came here? Oh well.
+<<SetAudio guardians bg>>
+Let me explain...
+<<SetBackground background_powers1>>
+The island of Grandin is not just any island.
+Because Grandin is home to the four wise guardians of emotion, perspective, health and self-advocacy.
+<<SetBackground background_powers2>>
+Over generations, certain people have come here to master these powers under their guidance.
+-> How do I do that?
+It's easy! You lead your normal life, but you also collect memories - they will appear to you as cards sent by one of the guardians.
+<<SetBackground background_guardians>>
+The red cards are from the guardian of emotion, the yellow ones from perspective, the green ones from health and the blue ones from self-advocacy.
+You need to go visit the guardians to test your skills - just share a memory and solve a riddle.
+-> Oh... there are tests?
+Well, don't worry about failing. Failing helps learning! Just don't give up.
+-> And.. what are these powers good for?
+Great question! Well, for example: If you are trying to make a friend, but your friend is sad
+then you could try to analyse why they are sad. But you can only do this well, if you understand emotions!
+If action requires at least 1 emotion xp, the option will say "(diff: 1 eXP)"...
+-> Got it!
+-> Why?
+    Think about it: it's like learning a different language. The more you know, the more options you have when talking to someone!
+<<SetAudio bg_ferry bg>>
+<<SetBackground ocean_background>>
+We're about to arrive. I'll be in your backpack...
+<<SetSpeaker none>>
+<<NoSpeakerName Narrator>>
+And then the island appeared on the horizon... ready to go?
+-> Yes
+<<SetBackground black>>
+<<SetAudio bg_island bg>>
+<<SetBackground background_arrival>>
+<<SetSpeaker Ghostcat>>
+By the way, I'm also here to give you some tips.
+<<HelperSays New situations can be scary, because you don't know what to expect. You could plan ahead by making a list!>>
+(Click on the little cat icon to read tips.)
+Do you want to make some plans? 
+-> Yes
+    [[Plans]]
+-> No
+    [[Arrival]]
+===
+title: Plans
+---
+<<SetSpeaker none>>
+<<NoSpeakerName Narrator>>
+You thought about it for a while...
+-> You should call your mom
+    <<HelperSays You can find your phone in your backpack, which you will see on the bottom left of the screen>>
+    You wrote down: "call mom"
+    <<AddNewTask call mom>>
+-> Skip that
+What else... it would be nice to talk to a friend.
+But then you remember, you and your friend Jessica (you two always hang out in school) had a strange conversation over chat.
+You're not sure if it was a fight... but...
+-> You want to read through the messages again
+    You wrote down: "check messages from Jessica"
+    <<AddNewTask check messages from Jessica>>
+-> Skip that
+But anyway, you'll be here for a while. Would it be good to make some friends?
+-> No, you don't feel like talking to people today.
+-> Yes, you want to try. It can't be that hard...
+    You wrote down: "make a friend"
+    <<AddNewTask make a friend>>
+Well, that's enough planning for now.
+[[Arrival]]
+===
+title: Arrival
+tags: 
+colorID: 0
+position: 6698,3796
+---
+You are waiting to be picked up from the docks...
+<<wait 2>>
+<<SetSpeaker Hostlady>>
+Hi! So sorry I'm late. Let's go see where you will stay - ok?
+<<SpeakerSays It's always good to know a space where you can be alone and feel safe. Maybe your new room?>>
+-> Ok.
+If you want to stay inside first, there's a TV and some magazines in the living room.
+<<SetSpeaker none>>
+<<NoSpeakerName Narrator>>
+-> Add watching TV to your tasks
+    You wrote down: "watch TV"
+    <<AddNewTask watch TV>>
+-> Add reading to your tasks
+    You wrote down: "read something"
+    <<AddNewTask read something>>
+-> Skip that
+<<SetSpeaker Hostlady>>
+Here we are! I'll see you later.
+-> Goodbye!
+Bye!
+[[Boat.End]]
+===
+title: Boat.End
+tags: 
+---
+<<SetAudio bg_house bg>>
+<<RemoveBackground "">>
+<<TriggerScript intro_end>>
+<<stop>>
+===

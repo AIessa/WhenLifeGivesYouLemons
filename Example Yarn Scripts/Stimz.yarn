@@ -1,0 +1,35 @@
+title: Stimz.Start
+tags: 
+colorID: 0
+position: 93,-66
+---
+<<SetSpeaker none>>
+<<RemoveBackground "">>
+<<BGFilter off>>
+This shop is called "stimz"
+-> enter
+    <<RemoveTask visit Stimz>>
+    [[Stimz.Enter]]
+-> not now
+    [[Stimz.Exit]]
+===
+title: Stimz.Enter
+tags: 
+colorID: 0
+position: 409,-237
+---
+<<BGFilter on>>
+<<SetBackground black>>
+You open the door, the shop is bigger than you thought and has a nice temperature!
+<<TriggerScript visit_stimshop>>
+<<stop>>
+===
+title: Stimz.Exit
+tags: 
+colorID: 0
+position: 419,39
+---
+You move on.
+<<BGFilter on>>
+<<stop>>
+===

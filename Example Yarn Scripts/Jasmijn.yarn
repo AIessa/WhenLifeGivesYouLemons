@@ -1,0 +1,172 @@
+﻿title: Jasmijn.Start
+tags:
+---
+<<SetBackground cat_playing>>
+<<if check_event("left_jasmijn")>>
+	<<TriggerScript jasmijn_leaves>>
+	<<SetSpeaker Jasmijn>>
+	<<if check_event("know_jasmijn")>>
+		Oh it's you again! I was just leaving...
+		I have some left-overs, want some?
+		<<SetSpeaker none>>
+		-> Yeah sure
+			She hands you a wrapped sandwich and an apple.
+			<<LogEvent got_food>>
+		-> No thanks
+		She waves and leaves you with the cat.
+		<<stop>>
+	<<else>>
+		Oh, it's you again! I was just leaving. 
+		See you later!
+		<<stop>>
+	<<endif>>
+<<else>>
+	[[Jasmijn.FirstMeeting]]
+<<endif>>
+===
+title: Jasmijn.FirstMeeting
+tags:
+---
+<<Relationship accquaintance Jasmijn>>
+<<SetSpeaker Jasmijn>>
+<<if check_event("pet_cat")>>
+	I see you like cats, too! I love them.. little fluff balls!!!
+	And with those tiny feet - so cute!
+	<<Relationship bonded-over-cats Jasmijn>>
+	-> It's so fluffy
+		Yeah!
+<<else>>
+	Hi there...
+<<endif>>
+<<SetSpeaker none>>
+<<Energy -5 emotion>>
+You see that the girl is eating a sandwich and seems to have a lot more food in her bag (the cat is very interested, too).
+-> Introduce yourself
+	<<SetSpeaker Jasmijn>>
+	I'm Jasmijn, nice to meet you! (She smiles and takes another bite from her sandwich.)
+	<<SetNameKnown Jasmijn>>
+	<<SetSpeaker Jasmijn>>
+	<<LogEvent know_jasmijn>>
+	<<SetSpeaker Jasmijn>>
+	-> Ask her where she got the sandwich from
+		Oh, I actually made these myself! I love cooking..
+		Actually, I could probably just give you one if you are hungry! I always have everything with me in my backpack.
+		I always have food with me, so Darrel calls me the ''mom-friend'', because I have painkillers, water, apples, biscuits... everything!
+		<<HelperSays Not everyone will offer you food - lucky you! Make sure to think about whether whoever offers you food is trustworthy. Does it look fresh and clean? Do they want something in return?>>
+		<<LogEvent mentioned_darryl>>
+		<<AddXPCard sharing_lv1>>
+		<<SetSpeaker You>>
+		-> Yes please! 
+			<<SetSpeaker Jasmijn>>
+			Here you go (she passes you some food)
+			[[Jasmijn.SitTogether]]
+		-> No thanks
+			<<SetSpeaker Jasmijn>>
+			Suit yourself! But you're missing out (she smiles)
+			[[Jasmijn.SitTogether]]
+	-> Continue walking
+		<<SetSpeaker You>>
+		Hi.. actually, I've got to go. Bye!
+		<<SetSpeaker Jasmijn>>
+		Oh ok, see you another time...
+		<<LogEvent left_jasmijn>>
+		<<stop>>
+	-> Sit in silence
+		[[Jasmijn.SitTogether]]
+-> Avoid interacting and leave
+	She looks at you a bit surprised as you simply turn around and leave.
+	<<Relationship thinks-you-are-a-bit-weird Jasmijn>>
+	<<LogEvent left_jasmijn>>
+	<<stop>>
+-> Ask if you can have some of her food
+	<<Energy -5 emotion>>
+	She seems surprised
+	<<SetSpeaker Jasmijn>>
+	Bold of you to ask for food before even introducing yourself... I'm Jasmijn (by the way)
+	<<LogEvent know_jasmijn>>
+	<<SetNameKnown Jasmijn>>
+	<<SetSpeaker Jasmijn>>
+	Are you a beggar?
+	<<HelperSays Jasmijn seems to be quite bold herself, but it is true that to ask for a favour you should try to be as polite as possible>>
+	<<SetSpeaker You>>
+	-> Offer something in return
+		I think I could pay you... or maybe buy food for you tomorrow?
+		<<SetSpeaker Jasmijn>>
+		Oh no no, I was joking! I mean, I have enough food so please have some.
+		<<HelperSays If they weren't selling food in the first place, it's uncommon to offer to buy food from a stranger. If you are already friends, it's more common to ask for food and say you'll return the favour later.>>
+		You don't have to pay me! You can be my friend instead (she smiles and offers you a hand to shake)
+		-> Shake her hand
+			<<Relationship friends-over-food Jasmijn>>
+			Then, here you go!
+			[[Jasmijn.SitTogether]]
+	-> Apologize and explain yourself
+		<<SetSpeaker Jasmijn>>
+		Don't be sorry, it's no problem. I know the supermarket is closed today, so if you just arrived...
+		Anyway, here's some food!
+		[[Jasmijn.SitTogether]]
+	-> Change your mind and leave before this gets more awkward!
+		She looks at you a bit surprised as you simply turn around and leave.
+		<<Relationship thinks-you-are-a-bit-weird Jasmijn>>
+		<<LogEvent left_jasmijn>>
+		<<stop>>
+===
+title: Jasmijn.SitTogether
+tags:
+---
+<<TriggerScript jasmijn_leaves>>
+<<SetSpeaker none>>
+You two and the cat end up sitting there for a while. At some point, something comes buzzing - a wasp!
+-> You love wasps
+-> You are terrified of anything that flies and stings
+-> You hate wasps for other reasons
+Jasmijn is terrified of bees and wasps and anything that makes buzzing noises near her food.
+Fortunately, the cat is there to chase it.
+What a surprisingly relaxing afternoon!
+<<Energy +5 ''>>
+<<if check_event("mentioned_darryl")>>
+-> You remember her earlier story. You ask: So who's Darrel?
+	<<SetSpeaker Jasmijn>>
+	Oh, he's my friend! He's like.. really into comics and stuff.
+	Don't interrupt him when he's reading! He gets really upset (she laughs).. but not really.
+	<<AddXPCard takingahint_lv1>>
+	Anyway, why do you ask?
+	<<SetSpeaker You>>
+	You just mentioned him earlier. You said he calls you the mom-friend!
+	<<SetSpeaker Jasmijn>>
+	Ah yeah, I remember!
+-> You don't interrupt the peace
+<<endif>>
+<<SetSpeaker Jasmijn>>
+I've got to go now! It was really nice to hang out with you, let's do it again some time! Just text me..
+<<RemoveTask make a friend>>
+<<HelperSays Yay! You made a friend - well, perhaps an acquaintance. But if you talk more, you're on a good way to becoming better friends.>>
+-> Should we exchange phone numbers?
+	<<SetSpeaker none>>
+	Jasmijn agrees and you exchange numbers. 
+	<<LogEvent jasmijn_phone_contact>>
+	<<SetSpeaker none>>
+	Does this mean she wants you to text her? Will she text you?? Hm. 
+	-> Add messaging Jasmijn to your tasks...
+		You write: "message Jasmijn"
+		<<AddNewTask message Jasmijn>>
+	-> Maybe not...
+-> Yeah, see you around!
+<<SetSpeaker Jasmijn>>
+Oh, but before I forget - come visit the cat cafe some day! It's closed today, but I work there!
+-> Wow, I'd love to spend all my day with cats
+-> Hm, do you like the job?
+-> Working in a cafe sounds stressful...
+I really like it! Obviously I love cats and workign with them brings peace...
+You know, when the cats are stressed or tired, you can feel it too. So it's less pressure for me
+if I'm out of energy - with animals you don't only have to take care of yourself, but also them!
+<<AddXPCard takingcare_lv1>>
+Anyway - gotta go! 
+<<SetSpeaker none>>
+An invitation! Will you go?
+-> Add visiting the cafe to your tasks
+	You write: "visit cafe"
+	<<AddNewTask visit cafe>>
+-> Skip
+	Maybe you will visit, maybe you won't...
+<<stop>>
+===
