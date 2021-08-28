@@ -4,6 +4,9 @@ When Life Gives You Lemons is a computer game (in development) that is designed 
 
 Tags: mini-rpg, branching narrative, story-driven, choice-based, 2D
 
+A game prototype "play-through" demo for this project can be viewed on [here](https://www.youtube.com/watch?v=OQHHAuO4JRI).
+
 ## About the repository
-This repository currently contains some of the scripts used in the game and a wiki containing different resources and information related to the design of the game.
-The game uses Unity and YarnSpinner.
+This repository currently contains the c# code used in the Unity project and some examples for YarnSpinner (dialogue) scripts. This repository has a wiki, which contains some documentation on custom Yarn Commands and Yarn Functions that were used to manipulate the game's behaviour from within dialogues.
+
+To receive a copy of the whole Unity project and demo scene, please contact me.
