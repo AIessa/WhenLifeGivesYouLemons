@@ -7,6 +7,6 @@ Tags: mini-rpg, branching narrative, story-driven, choice-based, 2D
 A game prototype "play-through" demo for this project can be viewed on [here](https://www.youtube.com/watch?v=OQHHAuO4JRI).
 
 ## About the repository
-This repository currently contains the c# code used in the Unity project and some examples for YarnSpinner (dialogue) scripts. This repository has a wiki, which contains some (documentation on custom Yarn Commands and Yarn Functions)[https://github.com/AIessa/WhenLifeGivesYouLemons/wiki/Custom-Yarn-Commands-and-Functions] that were used to manipulate the game's behaviour from within dialogues.
+This repository currently contains the c# code used in the Unity project and some examples for YarnSpinner (dialogue) scripts. This repository has a wiki, which contains some [documentation on custom Yarn Commands and Yarn Functions](https://github.com/AIessa/WhenLifeGivesYouLemons/wiki/Custom-Yarn-Commands-and-Functions) that were used to manipulate the game's behaviour from within dialogues.
 
 To receive a copy of the whole Unity project and demo scene, please contact me.
